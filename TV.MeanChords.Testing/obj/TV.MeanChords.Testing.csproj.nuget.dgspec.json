@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {}
+    "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {}
   },
   "projects": {
-    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
+    "D:\\Noé\\repos\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
+        "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
         "projectName": "TV.MeanChords.Data.Db",
-        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
+        "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
         "frameworks": {
           "net452": {
             "projectReferences": {
-              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
-                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
+              "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+                "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
               }
             }
           }
@@ -23,19 +23,19 @@
         "net452": {}
       }
     },
-    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
+    "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
+        "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
         "projectName": "TV.MeanChords.Handlers",
-        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
+        "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
         "frameworks": {
           "net452": {
             "projectReferences": {
-              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
-                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj"
+              "D:\\Noé\\repos\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
+                "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj"
               },
-              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
-                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
+              "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+                "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
               }
             }
           }
@@ -45,14 +45,14 @@
         "net452": {}
       }
     },
-    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {
+    "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+        "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
         "projectName": "TV.MeanChords.Testing",
-        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+        "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
         "packagesPath": "C:\\Users\\Noé\\.nuget\\packages\\",
-        "outputPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\obj\\",
+        "outputPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Noé\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -69,8 +69,8 @@
           "net452": {
             "targetAlias": "net452",
             "projectReferences": {
-              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
-                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj"
+              "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
+                "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj"
               }
             }
           }
@@ -106,11 +106,11 @@
         }
       }
     },
-    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+    "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
       "restore": {
-        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
+        "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
         "projectName": "TV.MeanChords.Utils",
-        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
+        "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
         "frameworks": {
           "net452": {
             "projectReferences": {}
