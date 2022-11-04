@@ -1,0 +1,18 @@
+﻿################################################################################
+# Este archivo .gitignore ha sido creado automáticamente por Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/TV.MeanChords.API
+/TV.MeanChords.API/bin
+/TV.MeanChords.API/obj
+/TV.MeanChords.API/Web.Debug.config
+/TV.MeanChords.API/Web.Release.config
+/TV.MeanChords.Data.Db/bin
+/TV.MeanChords.Data.Db/obj
+/TV.MeanChords.Handlers/bin
+/TV.MeanChords.Handlers/obj
+/TV.MeanChords.ModelViews/bin
+/TV.MeanChords.ModelViews/obj
+/TV.MeanChords.Utils/bin
+/TV.MeanChords.Utils/obj
+/packages

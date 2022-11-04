@@ -1,0 +1,125 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {}
+  },
+  "projects": {
+    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
+        "projectName": "TV.MeanChords.Data.Db",
+        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj",
+        "frameworks": {
+          "net452": {
+            "projectReferences": {
+              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
+        "projectName": "TV.MeanChords.Handlers",
+        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj",
+        "frameworks": {
+          "net452": {
+            "projectReferences": {
+              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj": {
+                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Data.Db\\TV.MeanChords.Data.Db.csproj"
+              },
+              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+        "projectName": "TV.MeanChords.Testing",
+        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+        "packagesPath": "C:\\Users\\Noé\\.nuget\\packages\\",
+        "outputPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Noé\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net452"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net452": {
+            "targetAlias": "net452",
+            "projectReferences": {
+              "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
+                "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net452": {
+          "targetAlias": "net452",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.5.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.16.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.2, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
+        "projectName": "TV.MeanChords.Utils",
+        "projectPath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Utils\\TV.MeanChords.Utils.csproj",
+        "frameworks": {
+          "net452": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    }
+  }
+}

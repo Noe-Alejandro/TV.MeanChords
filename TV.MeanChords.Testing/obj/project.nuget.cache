@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "h7uXyVXKuKLDBiioqBtnVQpjw57Xyey1WnEmqC1B1wFR556FdCN2sL9gNMe/P0JAyLN9NFDEQvgZTtRr87Va2w==",
+  "success": true,
+  "projectFilePath": "D:\\Noé\\repos\\CA\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Noé\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
+    "C:\\Users\\Noé\\.nuget\\packages\\microsoft.net.test.sdk\\16.5.0\\microsoft.net.test.sdk.16.5.0.nupkg.sha512",
+    "C:\\Users\\Noé\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Noé\\.nuget\\packages\\nunit\\3.12.0\\nunit.3.12.0.nupkg.sha512",
+    "C:\\Users\\Noé\\.nuget\\packages\\nunit3testadapter\\3.16.1\\nunit3testadapter.3.16.1.nupkg.sha512"
+  ],
+  "logs": []
+}
