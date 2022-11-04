@@ -1,18 +1,21 @@
 ﻿using TV.MeanChords.Data.Db.UnitOfWork;
 using TV.MeanChords.Utils.GenericClass;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TV.MeanChords.Handlers.CalculosCuotasHandler
 {
     public class ExampleInteractor : IExample
     {
         private UoWData UoWData { get; set; }
+        private UoWDiscosChowell UoWDiscosChowell { get; set; }
 
         public static ExampleInteractor Create() => new ExampleInteractor();
 
         public ExampleInteractor()
         {
             UoWData = UoWData.Create();
+            UoWDiscosChowell = UoWDiscosChowell.Create();
         }
 
         public ResponseBase<List<GetExampleValueResponse>> GetExampleValues()
@@ -45,6 +48,8 @@ namespace TV.MeanChords.Handlers.CalculosCuotasHandler
         {
             this.UoWData.Dispose();
             this.UoWData = null;
+            this.UoWDiscosChowell.Dispose();
+            this.UoWDiscosChowell = null;
         }
     }
 }

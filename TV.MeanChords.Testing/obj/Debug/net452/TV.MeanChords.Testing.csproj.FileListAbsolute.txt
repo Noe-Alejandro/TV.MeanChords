@@ -25,6 +25,11 @@ D:\Noé\repos\CA\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testin
 D:\Noé\repos\CA\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.CopyComplete
 D:\Noé\repos\CA\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.dll
 D:\Noé\repos\CA\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.pdb
+D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.AssemblyReference.cache
+D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.GeneratedMSBuildEditorConfig.editorconfig
+D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.AssemblyInfoInputs.cache
+D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.AssemblyInfo.cs
+D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.CoreCompileInputs.cache
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\NUnit3.TestAdapter.dll
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\NUnit3.TestAdapter.pdb
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\nunit.engine.dll
@@ -41,14 +46,10 @@ D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\EntityFramework.dll
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Handlers.pdb
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Handlers.dll.config
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Data.Db.pdb
+D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Data.Db.dll.config
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Utils.pdb
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\TV.MeanChords.Utils.dll.config
 D:\Noé\repos\AP2\TV.MeanChords.Testing\bin\Debug\net452\EntityFramework.xml
-D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.AssemblyReference.cache
-D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.GeneratedMSBuildEditorConfig.editorconfig
-D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.AssemblyInfoInputs.cache
-D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.AssemblyInfo.cs
-D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.CoreCompileInputs.cache
 D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.csproj.CopyComplete
 D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.dll
 D:\Noé\repos\AP2\TV.MeanChords.Testing\obj\Debug\net452\TV.MeanChords.Testing.pdb
