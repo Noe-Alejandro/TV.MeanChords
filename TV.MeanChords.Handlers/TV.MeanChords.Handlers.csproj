@@ -52,6 +52,9 @@
     <Compile Include="ExampleHandler\ExampleMessage.cs" />
     <Compile Include="ExampleHandler\IExample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserHandler\IUserService.cs" />
+    <Compile Include="UserHandler\UserServiceModel.cs" />
+    <Compile Include="UserHandler\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TV.MeanChords.Data.Db\TV.MeanChords.Data.Db.csproj">
@@ -69,9 +72,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="RecipeHandler\" />
-    <Folder Include="UserHandler\Buscador\" />
-    <Folder Include="UserHandler\Calificador\" />
-    <Folder Include="UserHandler\Escritor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

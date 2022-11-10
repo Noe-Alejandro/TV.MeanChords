@@ -29,6 +29,7 @@ namespace TV.MeanChords.Handlers.CalculosCuotasHandler
 
         public ResponseBase<List<GetExampleRecipeResponse>> GetExampleRecipe()
         {
+            var lst = UoWDiscosChowell.DiscRepository.GetAll().ToList();
             List<GetExampleRecipeResponse> data = new List<GetExampleRecipeResponse>();
             data.Add(new GetExampleRecipeResponse 
             {

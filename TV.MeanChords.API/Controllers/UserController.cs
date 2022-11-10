@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using TV.MeanChords.API.Helpers;
+using TV.MeanChords.Handlers.UserHandler;
+using TV.MeanChords.ModelViews.MVUser;
+using TV.MeanChords.Utils.GenericClass;
+
+namespace TV.MeanChords.API.Controllers
+{
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class UserController : ApiController
+    {
+        // GET: User
+        public IUserService GetService()
+        {
+            return UserService.Create();
+        }
+
+        [HttpPost]
+        [Route("~/api/User/POST")]
+        public IHttpActionResult PostUser(MVPostUserRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.PostUser(MapperHelper.Map<PostUserRequest>(request));
+
+                    var mvReponse = new ResponseBase<MVPostUserResponse>()
+                    {
+                        Data = MapperHelper.Map<MVPostUserResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVPostUserResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+    }
+}

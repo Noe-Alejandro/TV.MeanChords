@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomExceptions\EntityNotFoundException.cs" />
+    <Compile Include="Encryptor.cs" />
     <Compile Include="GenericClass\MsgResponseBase.cs" />
     <Compile Include="GenericClass\ResponseBase.cs" />
     <Compile Include="PredicateBuilder.cs" />

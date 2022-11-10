@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVGetExampleValueResponse.cs" />
+    <Compile Include="MVUser\MVUserRequest.cs" />
+    <Compile Include="MVUser\MVUserResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
