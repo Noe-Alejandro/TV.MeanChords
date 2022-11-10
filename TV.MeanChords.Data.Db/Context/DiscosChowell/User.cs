@@ -26,7 +26,6 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string UserImgUrl { get; set; }
         public int Type { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public System.DateTime ModificationDate { get; set; }
