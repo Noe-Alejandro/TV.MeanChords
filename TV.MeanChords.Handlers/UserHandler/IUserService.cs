@@ -7,5 +7,6 @@ namespace TV.MeanChords.Handlers.UserHandler
     public interface IUserService : IDisposable
     {
         ResponseBase<PostUserResponse> PostUser(PostUserRequest request);
+        ResponseBase<PutUserResponse> PutUser(PutUserRequest request);
     }
 }

@@ -50,5 +50,37 @@ namespace TV.MeanChords.API.Controllers
                 }));
             }
         }
+
+        [HttpPut]
+        [Route("~/api/User/PUT")]
+        public IHttpActionResult PutUser(MVPutUserRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.PutUser(MapperHelper.Map<PutUserRequest>(request));
+
+                    var mvReponse = new ResponseBase<MVPutUserResponse>()
+                    {
+                        Data = MapperHelper.Map<MVPutUserResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVPutUserResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
     }
 }
