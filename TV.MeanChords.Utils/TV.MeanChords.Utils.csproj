@@ -50,15 +50,14 @@
   <ItemGroup>
     <Compile Include="CustomExceptions\EntityNotFoundException.cs" />
     <Compile Include="Encryptor.cs" />
+    <Compile Include="Enum\UserType.cs" />
     <Compile Include="GenericClass\MsgResponseBase.cs" />
     <Compile Include="GenericClass\ResponseBase.cs" />
     <Compile Include="PredicateBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Enums\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />

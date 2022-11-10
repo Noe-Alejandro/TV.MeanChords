@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
+using TV.MeanChords.Data.Db.Context.DiscosChowell;
 using TV.MeanChords.Data.Db.UnitOfWork;
+using TV.MeanChords.Utils;
+using TV.MeanChords.Utils.Enum;
 using TV.MeanChords.Utils.GenericClass;
 
 namespace TV.MeanChords.Handlers.UserHandler
@@ -19,13 +24,34 @@ namespace TV.MeanChords.Handlers.UserHandler
         public ResponseBase<PostUserResponse> PostUser(PostUserRequest request)
         {
             if (ValidateParams(request))
-                return ResponseBase<PostUserResponse>.Create(new PostUserResponse
+            {
+                if (IsEmailInUse(request.Email))
+                    throw new Exception("El correo ya está en uso por otra cuenta");
+                var user = new User
                 {
                     Name = request.Name,
+                    LastName = request.LastName,
                     Email = request.Email,
-                    ID = 1
-                });
-            return null;
+                    Password = request.Password.EncryptString(),
+                    Type = (int)UserType.NORMAL_USER,
+                    CreatedDate = DateTime.Now,
+                    ModificationDate = DateTime.Now
+                };
+                UoWDiscosChowell.UserRepository.Insert(user);
+                UoWDiscosChowell.Save();
+                if (user.UserId > 0)
+                    return ResponseBase<PostUserResponse>.Create(new PostUserResponse
+                    {
+                        Name = user.Name,
+                        Email = user.Email,
+                        ID = (int)user.UserId
+                    });
+                throw new Exception("Falla al insertar el usuario en la base de datos");
+            }
+            else
+            {
+                throw new Exception("Alguno de sus campos no es válido");
+            }
         }
 
         private bool ValidateParams(PostUserRequest request)
@@ -44,6 +70,13 @@ namespace TV.MeanChords.Handlers.UserHandler
         private bool ValidatePassword(string password)
         {
             if (Regex.IsMatch(password, "[A-Z]"))
+                return true;
+            return false;
+        }
+
+        private bool IsEmailInUse(string email)
+        {
+            if (UoWDiscosChowell.UserRepository.Get(x => x.Email.Equals(email)).FirstOrDefault() != null)
                 return true;
             return false;
         }
