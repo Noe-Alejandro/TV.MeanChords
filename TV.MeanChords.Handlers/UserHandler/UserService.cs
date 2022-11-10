@@ -54,6 +54,38 @@ namespace TV.MeanChords.Handlers.UserHandler
             }
         }
 
+        public ResponseBase<PutUserResponse> PutUser(PutUserRequest request)
+        {
+            var user = UoWDiscosChowell.UserRepository
+                .Get(x => x.Email.Equals(request.CurrentEmail)).FirstOrDefault();
+            if(!user.Password.DecryptString().Equals(request.CurrentPassword))
+                throw new Exception("La contraseña es inválida");
+            if (request.NewEmail != null)
+            {
+                if (IsEmailInUse(request.NewEmail))
+                    throw new Exception("El correo ya se encuentra en uso por otra cuenta");
+                user.Email = request.NewEmail;
+            }
+            if (request.NewPassword != null)
+            {
+                if (!ValidatePassword(request.NewPassword))
+                    throw new Exception("La nueva contraseña no es válida");
+                user.Password = request.NewPassword.EncryptString();
+            }
+            if (request.Name != null)
+                user.Name = request.Name;
+            if (request.LastName != null)
+                user.LastName = request.LastName;
+            user.ModificationDate = DateTime.Now;
+            UoWDiscosChowell.Save();
+            return ResponseBase<PutUserResponse>.Create(new PutUserResponse
+            {
+                Name = user.Name,
+                LastName = user.LastName,
+                Email = user.Email
+            });
+        }
+
         private bool ValidateParams(PostUserRequest request)
         {
             if (String.IsNullOrEmpty(request.Name))
