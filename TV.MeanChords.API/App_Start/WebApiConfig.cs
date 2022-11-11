@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Web.Http;
+using TV.MeanChords.API.JWT;
 
 namespace TV.MeanChords.API
 {
@@ -8,9 +9,12 @@ namespace TV.MeanChords.API
         public static void Register(HttpConfiguration config)
         {
             // Configuración y servicios de API web
-            config.EnableCors();
+            //config.EnableCors();
+
             // Rutas de API web
             config.MapHttpAttributeRoutes();
+
+            config.MessageHandlers.Add(new TokenValidationHandler());
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -4,13 +4,14 @@ using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using TV.MeanChords.API.Helpers;
+using TV.MeanChords.API.JWT;
 using TV.MeanChords.Handlers.LoginHandler;
 using TV.MeanChords.ModelViews.MVLogin;
 using TV.MeanChords.Utils.GenericClass;
 
 namespace TV.MeanChords.API.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [AllowAnonymous]
     public class LoginController : ApiController
     {
         ILoginService GetService()
@@ -26,10 +27,12 @@ namespace TV.MeanChords.API.Controllers
                 using (var service = GetService())
                 {
                     var response = service.PostLogin(MapperHelper.Map<PostLoginRequest>(request));
+                    if (!response.Status)
+                        throw new Exception("Correo o contraseña inválida");
 
                     var mvReponse = new ResponseBase<MVPostLoginResponse>()
                     {
-                        Data = MapperHelper.Map<MVPostLoginResponse>(response.Data),
+                        Data = new MVPostLoginResponse{ token = TokenGenerator.GenerateTokenJwt("noe@gmail.com") },
                         Errors = response.Errors,
                         Status = response.Status
                     };

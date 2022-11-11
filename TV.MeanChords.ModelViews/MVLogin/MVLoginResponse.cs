@@ -2,6 +2,6 @@
 {
     public class MVPostLoginResponse
     {
-        public bool Status { get; set; }
+        public string token { get; set; }
     }
 }
