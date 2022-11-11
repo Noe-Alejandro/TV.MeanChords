@@ -51,6 +51,9 @@
     <Compile Include="ExampleHandler\ExampleInteractor.cs" />
     <Compile Include="ExampleHandler\ExampleMessage.cs" />
     <Compile Include="ExampleHandler\IExample.cs" />
+    <Compile Include="LoginHandler\ILoginService.cs" />
+    <Compile Include="LoginHandler\LoginService.cs" />
+    <Compile Include="LoginHandler\LoginServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserHandler\IUserService.cs" />
     <Compile Include="UserHandler\UserServiceModel.cs" />
@@ -70,8 +73,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="RecipeHandler\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

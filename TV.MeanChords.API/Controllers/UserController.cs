@@ -13,7 +13,6 @@ namespace TV.MeanChords.API.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
-        // GET: User
         public IUserService GetService()
         {
             return UserService.Create();
@@ -44,7 +43,7 @@ namespace TV.MeanChords.API.Controllers
             }
             catch (Exception e)
             {
-                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVPostUserResponse>>.Create(new List<string>()
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPostUserResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));
@@ -76,7 +75,7 @@ namespace TV.MeanChords.API.Controllers
             }
             catch (Exception e)
             {
-                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVPutUserResponse>>.Create(new List<string>()
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPutUserResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));

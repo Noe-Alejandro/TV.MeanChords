@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using TV.MeanChords.Data.Db.Context.DiscosChowell;
@@ -72,9 +71,9 @@ namespace TV.MeanChords.Handlers.UserHandler
                     throw new Exception("La nueva contraseña no es válida");
                 user.Password = request.NewPassword.EncryptString();
             }
-            if (request.Name != null)
+            if (request.Name != null && request.Name.Equals(""))
                 user.Name = request.Name;
-            if (request.LastName != null)
+            if (request.LastName != null && request.LastName.Equals(""))
                 user.LastName = request.LastName;
             user.ModificationDate = DateTime.Now;
             UoWDiscosChowell.Save();
