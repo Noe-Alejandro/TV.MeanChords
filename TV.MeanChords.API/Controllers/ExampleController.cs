@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using TV.MeanChords.API.JWT;
 
 namespace TV.MeanChords.API.Controllers
 {
@@ -18,7 +19,7 @@ namespace TV.MeanChords.API.Controllers
         {
             return ExampleInteractor.Create();
         }
-
+        [Authorize]
         [HttpGet]
         [Route("~/api/ExampleValue")]
         public IHttpActionResult GetExampleValues()
@@ -51,7 +52,7 @@ namespace TV.MeanChords.API.Controllers
                 }));
             }
         }
-
+        [AllowAnonymous]
         [HttpGet]
         [Route("~/api/RecipeExampleValue")]
         public IHttpActionResult GetRecipeValue()
@@ -61,6 +62,7 @@ namespace TV.MeanChords.API.Controllers
                 using (var interactor = GetInteractor())
                 {
                     var response = interactor.GetExampleRecipe();
+                    var token = TokenGenerator.GenerateTokenJwt("noe@gmail.com");
 
                     var mvReponse = new ResponseBase<List<MVGetRecipeValueResponse>>()
                     {
