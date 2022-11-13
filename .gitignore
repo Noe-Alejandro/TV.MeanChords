@@ -7,6 +7,7 @@
 /TV.MeanChords.API/obj
 /TV.MeanChords.API/Web.Debug.config
 /TV.MeanChords.API/Web.Release.config
+/TV.MeanChords.API/Properties/PublishProfiles
 /TV.MeanChords.Data.Db/bin
 /TV.MeanChords.Data.Db/obj
 /TV.MeanChords.Handlers/bin

@@ -17,7 +17,7 @@ namespace TV.MeanChords.API.Controllers
         {
             return UserService.Create();
         }
-
+        [AllowAnonymous]
         [HttpPost]
         [Route("~/api/User/POST")]
         public IHttpActionResult PostUser(MVPostUserRequest request)
