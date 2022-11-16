@@ -1,5 +1,15 @@
 ﻿namespace TV.MeanChords.Handlers.UserHandler
 {
+    public class GetUserRequest
+    {
+        public int UserId { get; set; }
+    }
+    public class GetUserResponse
+    {
+        public string Name { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+    }
     public class PostUserRequest
     {
         public string Name { get; set; }

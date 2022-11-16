@@ -11,6 +11,7 @@ using TV.MeanChords.Utils.GenericClass;
 
 namespace TV.MeanChords.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [AllowAnonymous]
     public class LoginController : ApiController
     {
@@ -18,6 +19,7 @@ namespace TV.MeanChords.API.Controllers
         {
             return LoginService.Create();
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("~/api/Login/POST")]
         public IHttpActionResult PostLogin(MVPostLoginRequest request)

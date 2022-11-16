@@ -17,6 +17,40 @@ namespace TV.MeanChords.API.Controllers
         {
             return UserService.Create();
         }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("~/api/User/GET")]
+        public IHttpActionResult GetUser([FromUri]MVGetUserRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetUser(MapperHelper.Map<GetUserRequest>(request));
+
+                    var mvReponse = new ResponseBase<MVGetUserResponse>()
+                    {
+                        Data = MapperHelper.Map<MVGetUserResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVGetUserResponse>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
         [AllowAnonymous]
         [HttpPost]
         [Route("~/api/User/POST")]
@@ -50,6 +84,7 @@ namespace TV.MeanChords.API.Controllers
             }
         }
 
+        [Authorize]
         [HttpPut]
         [Route("~/api/User/PUT")]
         public IHttpActionResult PutUser(MVPutUserRequest request)

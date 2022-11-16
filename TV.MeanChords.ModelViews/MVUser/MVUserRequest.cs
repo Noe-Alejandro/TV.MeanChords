@@ -1,5 +1,10 @@
 ﻿namespace TV.MeanChords.ModelViews.MVUser
 {
+    public class MVGetUserRequest
+    {
+        public int UserId { get; set; }
+    }
+
     public class MVPostUserRequest
     {
         public string Name { get; set; }

@@ -20,6 +20,19 @@ namespace TV.MeanChords.Handlers.UserHandler
             UoWDiscosChowell = UoWDiscosChowell.Create();
         }
 
+        public ResponseBase<GetUserResponse> GetUser(GetUserRequest request)
+        {
+            var user = UoWDiscosChowell.UserRepository.Get(X => X.UserId.Equals(request.UserId)).FirstOrDefault();
+            if (user == null)
+                throw new Exception("No se encontró el usuario");
+            return ResponseBase<GetUserResponse>.Create(new GetUserResponse
+            {
+                Name = user.Name,
+                LastName = user.LastName,
+                Email = user.Email
+            });
+        }
+
         public ResponseBase<PostUserResponse> PostUser(PostUserRequest request)
         {
             if (ValidateParams(request))
