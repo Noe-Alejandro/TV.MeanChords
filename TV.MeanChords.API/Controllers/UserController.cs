@@ -18,7 +18,7 @@ namespace TV.MeanChords.API.Controllers
             return UserService.Create();
         }
 
-        [AllowAnonymous]
+        [Authorize]
         [HttpGet]
         [Route("~/api/User/GET")]
         public IHttpActionResult GetUser([FromUri]MVGetUserRequest request)

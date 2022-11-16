@@ -3,5 +3,6 @@
     public class MVPostLoginResponse
     {
         public string token { get; set; }
+        public int UserID { get; set; }
     }
 }

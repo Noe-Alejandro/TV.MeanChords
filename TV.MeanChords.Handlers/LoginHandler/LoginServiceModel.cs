@@ -3,6 +3,7 @@
     public class PostLoginResponse
     {
         public bool Status { get; set; }
+        public int UserId { get; set; }
     }
 
     public class PostLoginRequest

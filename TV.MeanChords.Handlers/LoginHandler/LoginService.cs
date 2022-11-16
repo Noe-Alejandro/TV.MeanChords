@@ -32,7 +32,8 @@ namespace TV.MeanChords.Handlers.LoginHandler
                 });
             return request.Password.Equals(user.Password.DecryptString()) ? ResponseBase<PostLoginResponse>.Create(new PostLoginResponse
             {
-                Status = true
+                Status = true,
+                UserId = user.UserId
             }) : ResponseBase<PostLoginResponse>.Create(new List<string>
             {
                 "Correo o contraseña inválida"

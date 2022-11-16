@@ -34,7 +34,10 @@ namespace TV.MeanChords.API.Controllers
 
                     var mvReponse = new ResponseBase<MVPostLoginResponse>()
                     {
-                        Data = new MVPostLoginResponse{ token = TokenGenerator.GenerateTokenJwt("noe@gmail.com") },
+                        Data = new MVPostLoginResponse{ 
+                            token = TokenGenerator.GenerateTokenJwt(request.Email),
+                            UserID = response.Data.UserId
+                        },
                         Errors = response.Errors,
                         Status = response.Status
                     };
