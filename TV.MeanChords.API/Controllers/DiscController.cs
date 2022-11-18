@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Net;
+using System.Web.Http;
+using System.Web.Http.Cors;
+using TV.MeanChords.API.Helpers;
+using TV.MeanChords.Handlers.DiscHandler;
+using TV.MeanChords.Handlers.UserHandler;
+using TV.MeanChords.ModelViews.MVDisc;
+using TV.MeanChords.ModelViews.MVUser;
+using TV.MeanChords.Utils.GenericClass;
+
+namespace TV.MeanChords.API.Controllers
+{
+    public class DiscController : ApiController
+    {
+        [EnableCors(origins: "*", headers: "*", methods: "*")]
+        public IDiscService GetService()
+        {
+            return DiscService.Create();
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("~/api/Disc/GET")]
+        public IHttpActionResult GetDisc([FromUri] MVGetDiscRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetDisc(MapperHelper.Map<GetDiscRequest>(request));
+
+                    var mvReponse = new ResponseBase<MVGetDiscResponse>()
+                    {
+                        Data = MapperHelper.Map<MVGetDiscResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVGetDiscResponse>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [Authorize]
+        [HttpPost]
+        [Route("~/api/Disc/POST")]
+        public IHttpActionResult PostDisc(MVPostDiscRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.PostDisc(MapperHelper.Map<PostDiscRequest>(request));
+
+                    var mvReponse = new ResponseBase<MVPostDiscResponse>()
+                    {
+                        Data = MapperHelper.Map<MVPostDiscResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPostDiscResponse>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+    }
+}

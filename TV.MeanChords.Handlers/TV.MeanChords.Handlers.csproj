@@ -48,6 +48,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
+    <Compile Include="DiscHandler\DiscService.cs" />
+    <Compile Include="DiscHandler\DiscServiceModel.cs" />
+    <Compile Include="DiscHandler\IDiscService.cs" />
     <Compile Include="ExampleHandler\ExampleInteractor.cs" />
     <Compile Include="ExampleHandler\ExampleMessage.cs" />
     <Compile Include="ExampleHandler\IExample.cs" />

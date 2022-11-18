@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVDisc\MVDiscRequest.cs" />
+    <Compile Include="MVDisc\MVDiscResponse.cs" />
     <Compile Include="MVGetExampleValueResponse.cs" />
     <Compile Include="MVLogin\MVLoginRequest.cs" />
     <Compile Include="MVLogin\MVLoginResponse.cs" />
