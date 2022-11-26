@@ -22,6 +22,9 @@
         <AssociationConnector Association="DiscosChowellModel.FK_DiscTag_Tag" ManuallyRouted="false" />
         <AssociationConnector Association="DiscosChowellModel.FK_Sale_User" ManuallyRouted="false" />
         <AssociationConnector Association="DiscosChowellModel.FK_SaleDisc_Sale" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DiscosChowellModel.ShoppingCar" Width="1.5" PointX="10.5" PointY="3.75" />
+        <AssociationConnector Association="DiscosChowellModel.FK_ShoppingCar_Disc" />
+        <AssociationConnector Association="DiscosChowellModel.FK_ShoppingCar_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

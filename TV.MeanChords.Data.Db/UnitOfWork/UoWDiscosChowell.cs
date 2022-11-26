@@ -32,6 +32,7 @@ namespace TV.MeanChords.Data.Db.UnitOfWork
         public GenericRepository<Tag> TagRepository { get; set; }
         public GenericRepository<User> UserRepository { get; set; }
         public GenericRepository<SaleDisc> SaleDiscRepository { get; set; }
+        public GenericRepository<ShoppingCar> ShoppingCarRepository { get; set; }
 
         public void Save()
         {

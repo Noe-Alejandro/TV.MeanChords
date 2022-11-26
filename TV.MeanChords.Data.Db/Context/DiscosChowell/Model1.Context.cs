@@ -22,7 +22,6 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Address> Address { get; set; }
@@ -34,5 +33,6 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
         public virtual DbSet<Tag> Tag { get; set; }
         public virtual DbSet<User> User { get; set; }
         public virtual DbSet<SaleDisc> SaleDisc { get; set; }
+        public virtual DbSet<ShoppingCar> ShoppingCar { get; set; }
     }
 }

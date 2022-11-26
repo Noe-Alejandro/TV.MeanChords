@@ -25,6 +25,8 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
         public double Total { get; set; }
         public int UserId { get; set; }
         public int AddressId { get; set; }
+        public int? Status { get; set; }
+        public int? DeliveryService { get; set; }
     
         public virtual Address Address { get; set; }
         public virtual User User { get; set; }

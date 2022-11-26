@@ -19,6 +19,7 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
         {
             this.DiscTag = new HashSet<DiscTag>();
             this.SaleDisc = new HashSet<SaleDisc>();
+            this.ShoppingCar = new HashSet<ShoppingCar>();
         }
     
         public int DiscId { get; set; }
@@ -37,5 +38,7 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
         public virtual ICollection<DiscTag> DiscTag { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SaleDisc> SaleDisc { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ShoppingCar> ShoppingCar { get; set; }
     }
 }
