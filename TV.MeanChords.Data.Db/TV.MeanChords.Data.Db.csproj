@@ -86,6 +86,9 @@
     <Compile Include="Context\DiscosChowell\SaleDisc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Context\DiscosChowell\ShoppingCar.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Context\DiscosChowell\Tag.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

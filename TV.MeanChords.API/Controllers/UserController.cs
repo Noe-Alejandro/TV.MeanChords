@@ -18,7 +18,7 @@ namespace TV.MeanChords.API.Controllers
             return UserService.Create();
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpGet]
         [Route("~/api/User/GET")]
         public IHttpActionResult GetUser([FromUri]MVGetUserRequest request)
@@ -84,7 +84,7 @@ namespace TV.MeanChords.API.Controllers
             }
         }
 
-        [Authorize]
+        [AllowAnonymous]
         [HttpPut]
         [Route("~/api/User/PUT")]
         public IHttpActionResult PutUser(MVPutUserRequest request)
@@ -116,5 +116,18 @@ namespace TV.MeanChords.API.Controllers
                 }));
             }
         }
+        //Busqueda por titulo para discos
+        //Filtra por categoria de discos 
+        //Obtener lista de categorias { id nombre}
+        //Agregar al carrito (idDisc y idUser) { Ok }
+        //Obtener lo del carrito (userId) {List disc}
+        //Registrar venta () {} XX
+        //Generación del ticket despues de una compra.
+        //Validacion de stock (3)
+        //Editar disco {todo}
+        //Obtener pedidos Admin (UserId) {lista de pedidos {id, lista de discos, nombre del cliente, direccion, paqueteria}} => {SaleDisc}
+        //Actualizar estado de pedido ADMIN
+        //Reporte {mes, año, url}
+
     }
 }
