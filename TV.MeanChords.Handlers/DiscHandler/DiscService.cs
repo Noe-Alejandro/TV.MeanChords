@@ -66,6 +66,28 @@ namespace TV.MeanChords.Handlers.DiscHandler
             });
         }
 
+        public ResponseBase<List<GetDiscResponse>> GetDiscByTitle(string Title)
+        {
+            var discLst = UoWDiscosChowell.DiscRepository.Get(x => x.Name.Contains(Title)).ToList();
+            if (discLst == null)
+                throw new Exception("No se encontraron discos con ese resultado");
+            var responseLst = new List<GetDiscResponse>();
+            foreach (var disc in discLst)
+            {
+                responseLst.Add(new GetDiscResponse
+                {
+                    Name = disc.Name,
+                    Description = disc.Description,
+                    DiscImgUrl = disc.DiscImgUrl,
+                    Price = disc.Price,
+                    Amount = disc.Amount,
+                    Author = new GetDiscResponseAuthor { FullName = disc.Author.FullName, ShortName = disc.Author.ShortName },
+                    Categories = MapCategories(disc)
+                });
+            }
+            return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
+        }
+
         public ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request)
         {
             if (request == null)
@@ -92,6 +114,28 @@ namespace TV.MeanChords.Handlers.DiscHandler
             }
             UoWDiscosChowell.Save();
             return ResponseBase<PostDiscResponse>.Create(new PostDiscResponse { DiscId = disc.DiscId });
+        }
+
+        public ResponseBase<List<GetDiscResponse>> GetAllDisc()
+        {
+            var disclst = UoWDiscosChowell.DiscRepository.GetAll().ToList();
+            if (disclst == null || disclst.Count == 0)
+                throw new Exception("No hay discos en la db");
+            var responseLst = new List<GetDiscResponse>();
+            foreach (var disc in disclst)
+            {
+                responseLst.Add(new GetDiscResponse
+                {
+                    Name = disc.Name,
+                    Description = disc.Description,
+                    DiscImgUrl = disc.DiscImgUrl,
+                    Price = disc.Price,
+                    Amount = disc.Amount,
+                    Author = new GetDiscResponseAuthor { FullName = disc.Author.FullName, ShortName = disc.Author.ShortName },
+                    Categories = MapCategories(disc)
+                });
+            }
+            return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
         }
     }
 }

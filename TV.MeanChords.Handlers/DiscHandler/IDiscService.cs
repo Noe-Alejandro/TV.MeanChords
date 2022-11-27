@@ -10,6 +10,8 @@ namespace TV.MeanChords.Handlers.DiscHandler
     public interface IDiscService : IDisposable
     {
         ResponseBase<GetDiscResponse> GetDisc(GetDiscRequest request);
+        ResponseBase<List<GetDiscResponse>> GetDiscByTitle(string Title);
+        ResponseBase<List<GetDiscResponse>> GetAllDisc();
         ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request);
     }
 }

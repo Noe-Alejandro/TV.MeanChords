@@ -53,7 +53,73 @@ namespace TV.MeanChords.API.Controllers
             }
         }
 
-        [Authorize]
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("~/api/Disc/GETBYTITLE")]
+        public IHttpActionResult GetDiscByTitle(string Title)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetDiscByTitle(Title);
+
+                    var mvReponse = new ResponseBase<List<GetDiscResponse>>()
+                    {
+                        Data = MapperHelper.Map<List<GetDiscResponse>>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<GetDiscResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("~/api/Disc/GETALL")]
+        public IHttpActionResult GetAllDisc()
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetAllDisc();
+
+                    var mvReponse = new ResponseBase<List<MVGetDiscResponse>>()
+                    {
+                        Data = MapperHelper.Map<List<MVGetDiscResponse>>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVGetDiscResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [AllowAnonymous]
         [HttpPost]
         [Route("~/api/Disc/POST")]
         public IHttpActionResult PostDisc(MVPostDiscRequest request)
