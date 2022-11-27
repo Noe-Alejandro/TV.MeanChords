@@ -3,35 +3,32 @@ using System.Collections.Generic;
 using System.Net;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using TV.MeanChords.API.Helpers;
-using TV.MeanChords.Handlers.UserHandler;
-using TV.MeanChords.ModelViews.MVUser;
+using TV.MeanChords.Handlers.ShoppingCarHandler;
 using TV.MeanChords.Utils.GenericClass;
-
 namespace TV.MeanChords.API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class UserController : ApiController
+    public class ShoppingCarController : ApiController
     {
-        public IUserService GetService()
+        public IShoppingCarService GetService()
         {
-            return UserService.Create();
+            return ShoppingCarService.Create();
         }
 
         [AllowAnonymous]
         [HttpGet]
-        [Route("~/api/User/GET")]
-        public IHttpActionResult GetUser([FromUri]MVGetUserRequest request)
+        [Route("~/api/ShoppingCar/GET")]
+        public IHttpActionResult GetShoppingCar([FromUri]int UserId)
         {
             try
             {
                 using (var service = GetService())
                 {
-                    var response = service.GetUser(MapperHelper.Map<GetUserRequest>(request));
+                    var response = service.GetShoppingCar(UserId);
 
-                    var mvReponse = new ResponseBase<MVGetUserResponse>()
+                    var mvReponse = new ResponseBase<GetShoppingCarResponse>()
                     {
-                        Data = MapperHelper.Map<MVGetUserResponse>(response.Data),
+                        Data = response.Data,
                         Errors = response.Errors,
                         Status = response.Status
                     };
@@ -44,7 +41,7 @@ namespace TV.MeanChords.API.Controllers
             }
             catch (Exception e)
             {
-                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVGetUserResponse>.Create(new List<string>()
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<GetShoppingCarResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));
@@ -53,18 +50,18 @@ namespace TV.MeanChords.API.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        [Route("~/api/User/POST")]
-        public IHttpActionResult PostUser(MVPostUserRequest request)
+        [Route("~/api/ShoppingCar/POST")]
+        public IHttpActionResult PostDiscInWishList(ShoppingCarRequest request)
         {
             try
             {
                 using (var service = GetService())
                 {
-                    var response = service.PostUser(MapperHelper.Map<PostUserRequest>(request));
+                    var response = service.PostDiscInWishList(request.UserId, request.DiscId);
 
-                    var mvReponse = new ResponseBase<MVPostUserResponse>()
+                    var mvReponse = new ResponseBase<PostShoppingCarResponse>()
                     {
-                        Data = MapperHelper.Map<MVPostUserResponse>(response.Data),
+                        Data = response.Data,
                         Errors = response.Errors,
                         Status = response.Status
                     };
@@ -77,7 +74,7 @@ namespace TV.MeanChords.API.Controllers
             }
             catch (Exception e)
             {
-                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPostUserResponse>.Create(new List<string>()
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<PostShoppingCarResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));
@@ -85,19 +82,19 @@ namespace TV.MeanChords.API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPut]
-        [Route("~/api/User/PUT")]
-        public IHttpActionResult PutUser(MVPutUserRequest request)
+        [HttpDelete]
+        [Route("~/api/ShoppingCar/DELETE")]
+        public IHttpActionResult RemoveDiscFromWishList(ShoppingCarRequest request)
         {
             try
             {
                 using (var service = GetService())
                 {
-                    var response = service.PutUser(MapperHelper.Map<PutUserRequest>(request));
+                    var response = service.RemoveDiscFromWishList(request.UserId, request.DiscId);
 
-                    var mvReponse = new ResponseBase<MVPutUserResponse>()
+                    var mvReponse = new ResponseBase<DeleteShoppingCarResponse>()
                     {
-                        Data = MapperHelper.Map<MVPutUserResponse>(response.Data),
+                        Data = response.Data,
                         Errors = response.Errors,
                         Status = response.Status
                     };
@@ -110,23 +107,11 @@ namespace TV.MeanChords.API.Controllers
             }
             catch (Exception e)
             {
-                return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPutUserResponse>.Create(new List<string>()
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<DeleteShoppingCarResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));
             }
         }
-
-        //Editar disco {todo}
-
-        //Registrar venta () {} XX
-        //Generación del ticket despues de una compra.
-            //Validacion de stock (3)
-
-        //Obtener pedidos Admin (UserId) {lista de pedidos {id, lista de discos, nombre del cliente, direccion, paqueteria}} => {SaleDisc}
-        //Actualizar estado de pedido ADMIN
-        
-        //Reporte {mes, año, url}
-
     }
 }

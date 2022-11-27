@@ -56,6 +56,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
                 throw new Exception("No se encontró el disco con el ID proporcionado");
             return ResponseBase<GetDiscResponse>.Create(new GetDiscResponse
             {
+                DiscId = disc.DiscId,
                 Name = disc.Name,
                 Description = disc.Description,
                 DiscImgUrl = disc.DiscImgUrl,
@@ -76,6 +77,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
             {
                 responseLst.Add(new GetDiscResponse
                 {
+                    DiscId = disc.DiscId,
                     Name = disc.Name,
                     Description = disc.Description,
                     DiscImgUrl = disc.DiscImgUrl,
@@ -98,6 +100,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
             {
                 responseLst.Add(new GetDiscResponse
                 {
+                    DiscId = disc.DiscId,
                     Name = disc.Disc.Name,
                     Description = disc.Disc.Description,
                     DiscImgUrl = disc.Disc.DiscImgUrl,
@@ -148,6 +151,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
             {
                 responseLst.Add(new GetDiscResponse
                 {
+                    DiscId = disc.DiscId,
                     Name = disc.Name,
                     Description = disc.Description,
                     DiscImgUrl = disc.DiscImgUrl,

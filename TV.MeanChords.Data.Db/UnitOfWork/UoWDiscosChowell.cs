@@ -20,6 +20,7 @@ namespace TV.MeanChords.Data.Db.UnitOfWork
             TagRepository = new GenericRepository<Tag>(Context);
             UserRepository = new GenericRepository<User>(Context);
             SaleDiscRepository = new GenericRepository<SaleDisc>(Context);
+            ShoppingCarRepository = new GenericRepository<ShoppingCar>(Context);
         }
 
         private DiscosChowellEntities Context { get; set; }

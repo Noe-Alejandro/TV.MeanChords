@@ -84,9 +84,9 @@ namespace TV.MeanChords.Handlers.UserHandler
                     throw new Exception("La nueva contraseña no es válida");
                 user.Password = request.NewPassword.EncryptString();
             }
-            if (request.Name != null && request.Name.Equals(""))
+            if (request.Name != null && !request.Name.Equals(""))
                 user.Name = request.Name;
-            if (request.LastName != null && request.LastName.Equals(""))
+            if (request.LastName != null && !request.LastName.Equals(""))
                 user.LastName = request.LastName;
             user.ModificationDate = DateTime.Now;
             UoWDiscosChowell.Save();

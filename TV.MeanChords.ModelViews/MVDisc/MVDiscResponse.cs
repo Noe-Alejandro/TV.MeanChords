@@ -5,6 +5,7 @@ namespace TV.MeanChords.ModelViews.MVDisc
 {
     public class MVGetDiscResponse
     {
+        public int DiscId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string DiscImgUrl { get; set; }

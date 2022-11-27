@@ -13,6 +13,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
 
     public class GetDiscResponse
     {
+        public int DiscId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string DiscImgUrl { get; set; }
