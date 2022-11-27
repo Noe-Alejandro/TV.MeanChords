@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using TV.MeanChords.Data.Db.UnitOfWork;
+using TV.MeanChords.Handlers.UserHandler;
 using TV.MeanChords.Utils;
 using TV.MeanChords.Utils.GenericClass;
 
@@ -33,7 +34,13 @@ namespace TV.MeanChords.Handlers.LoginHandler
             return request.Password.Equals(user.Password.DecryptString()) ? ResponseBase<PostLoginResponse>.Create(new PostLoginResponse
             {
                 Status = true,
-                UserId = user.UserId
+                UserId = user.UserId,
+                User = new GetUserResponse
+                {
+                    Name = user.Name,
+                    LastName = user.LastName,
+                    Email = user.Email
+                }
             }) : ResponseBase<PostLoginResponse>.Create(new List<string>
             {
                 "Correo o contraseña inválida"

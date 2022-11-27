@@ -88,6 +88,28 @@ namespace TV.MeanChords.Handlers.DiscHandler
             return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
         }
 
+        public ResponseBase<List<GetDiscResponse>> GetDiscByCategory(int CategoryId)
+        {
+            var discLst = UoWDiscosChowell.DiscTagRepository.Get(x => x.TagId.Equals(CategoryId)).ToList();
+            if (discLst == null)
+                throw new Exception("No se encontraron discos con ese resultado");
+            var responseLst = new List<GetDiscResponse>();
+            foreach (var disc in discLst)
+            {
+                responseLst.Add(new GetDiscResponse
+                {
+                    Name = disc.Disc.Name,
+                    Description = disc.Disc.Description,
+                    DiscImgUrl = disc.Disc.DiscImgUrl,
+                    Price = disc.Disc.Price,
+                    Amount = disc.Disc.Amount,
+                    Author = new GetDiscResponseAuthor { FullName = disc.Disc.Author.FullName, ShortName = disc.Disc.Author.ShortName },
+                    Categories = MapCategories(disc.Disc)
+                });
+            }
+            return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
+        }
+
         public ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request)
         {
             if (request == null)

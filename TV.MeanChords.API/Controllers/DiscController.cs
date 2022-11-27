@@ -88,6 +88,39 @@ namespace TV.MeanChords.API.Controllers
 
         [AllowAnonymous]
         [HttpGet]
+        [Route("~/api/Disc/GETBYCATEGORY")]
+        public IHttpActionResult GetDiscByCategory(int CategoryId)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetDiscByCategory(CategoryId);
+
+                    var mvReponse = new ResponseBase<List<GetDiscResponse>>()
+                    {
+                        Data = MapperHelper.Map<List<GetDiscResponse>>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<GetDiscResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpGet]
         [Route("~/api/Disc/GETALL")]
         public IHttpActionResult GetAllDisc()
         {

@@ -36,7 +36,8 @@ namespace TV.MeanChords.API.Controllers
                     {
                         Data = new MVPostLoginResponse{ 
                             token = TokenGenerator.GenerateTokenJwt(request.Email),
-                            UserID = response.Data.UserId
+                            UserID = response.Data.UserId,
+                            User = response.Data.User
                         },
                         Errors = response.Errors,
                         Status = response.Status
