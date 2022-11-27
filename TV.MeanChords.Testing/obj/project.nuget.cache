@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "X/QvOnL329+f5hSIfd5tyY1JJQl/RBYMs0sI7GCojgxa3eV87bVh2YeyrwHN56FvIJRF40QsCLKgrzDIfyOOvA==",
+  "dgSpecHash": "yh300WXSRB3bfZZ4TYF2ACDF0p2z1YtuhKBdvGvU9Wgdm/tKE6gt+WSNQzj9SxCWGIiR9YKEFvdx1dxISHbevA==",
   "success": true,
-  "projectFilePath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+  "projectFilePath": "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Noé\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\Noé\\.nuget\\packages\\microsoft.net.test.sdk\\16.5.0\\microsoft.net.test.sdk.16.5.0.nupkg.sha512",

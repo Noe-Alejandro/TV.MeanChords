@@ -59,6 +59,9 @@
     <Compile Include="LoginHandler\LoginService.cs" />
     <Compile Include="LoginHandler\LoginServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TagHandler\ITagService.cs" />
+    <Compile Include="TagHandler\TagService.cs" />
+    <Compile Include="TagHandler\TagServiceModel.cs" />
     <Compile Include="UserHandler\IUserService.cs" />
     <Compile Include="UserHandler\UserServiceModel.cs" />
     <Compile Include="UserHandler\UserService.cs" />

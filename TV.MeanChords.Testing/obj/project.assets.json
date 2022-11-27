@@ -261,11 +261,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+      "projectUniqueName": "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
       "projectName": "TV.MeanChords.Testing",
-      "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
+      "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Testing\\TV.MeanChords.Testing.csproj",
       "packagesPath": "C:\\Users\\Noé\\.nuget\\packages\\",
-      "outputPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Testing\\obj\\",
+      "outputPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Testing\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Noé\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -282,8 +282,8 @@
         "net452": {
           "targetAlias": "net452",
           "projectReferences": {
-            "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
-              "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj"
+            "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj": {
+              "projectPath": "D:\\Noé\\repos\\AP2\\TV.MeanChords\\TV.MeanChords.Handlers\\TV.MeanChords.Handlers.csproj"
             }
           }
         }
