@@ -12,9 +12,10 @@ using TV.MeanChords.Utils.GenericClass;
 
 namespace TV.MeanChords.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [AllowAnonymous]
     public class DiscController : ApiController
     {
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
         public IDiscService GetService()
         {
             return DiscService.Create();
@@ -179,6 +180,39 @@ namespace TV.MeanChords.API.Controllers
             catch (Exception e)
             {
                 return Content(HttpStatusCode.InternalServerError, ResponseBase<MVPostDiscResponse>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [AllowAnonymous]
+        [HttpPut]
+        [Route("~/api/Disc/PUT")]
+        public IHttpActionResult PutDisc([FromUri] int DiscId, [FromBody] PutDiscRequest request)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.PutDisc(DiscId, request);
+
+                    var mvReponse = new ResponseBase<PostDiscResponse>()
+                    {
+                        Data = MapperHelper.Map<PostDiscResponse>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<PostDiscResponse>.Create(new List<string>()
                 {
                     e.Message
                 }));

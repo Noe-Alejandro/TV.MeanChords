@@ -11,6 +11,7 @@ using TV.MeanChords.Utils.GenericClass;
 namespace TV.MeanChords.API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [AllowAnonymous]
     public class UserController : ApiController
     {
         public IUserService GetService()

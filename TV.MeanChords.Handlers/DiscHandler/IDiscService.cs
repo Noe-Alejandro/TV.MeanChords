@@ -14,5 +14,6 @@ namespace TV.MeanChords.Handlers.DiscHandler
         ResponseBase<List<GetDiscResponse>> GetDiscByCategory(int CategoryId);
         ResponseBase<List<GetDiscResponse>> GetAllDisc();
         ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request);
+        ResponseBase<PostDiscResponse> PutDisc(int DiscId, PutDiscRequest request);
     }
 }
