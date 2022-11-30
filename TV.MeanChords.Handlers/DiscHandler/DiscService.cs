@@ -113,6 +113,57 @@ namespace TV.MeanChords.Handlers.DiscHandler
             return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
         }
 
+        public ResponseBase<List<GetDiscResponse>> GetLastDisc(int? Quantity)
+        {
+            if(Quantity == null)
+            {
+                var disclst = UoWDiscosChowell.DiscRepository.GetAll().OrderByDescending(x => x.CreatedDate).ToList();
+                if (disclst == null || disclst.Count == 0)
+                    throw new Exception("No hay discos en la db");
+                var responseLst = new List<GetDiscResponse>();
+                foreach (var disc in disclst)
+                {
+                    responseLst.Add(new GetDiscResponse
+                    {
+                        DiscId = disc.DiscId,
+                        Name = disc.Name,
+                        Description = disc.Description,
+                        DiscImgUrl = disc.DiscImgUrl,
+                        Price = disc.Price,
+                        Amount = disc.Amount,
+                        Author = new GetDiscResponseAuthor { FullName = disc.Author.FullName, ShortName = disc.Author.ShortName },
+                        Categories = MapCategories(disc)
+                    });
+                }
+                return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
+            }
+            else
+            {
+                if (Quantity <= 0)
+                    throw new Exception("Ingrese una cantidad válida");
+                int take = (int)Quantity;
+                var disclst = UoWDiscosChowell.DiscRepository.GetAll().OrderByDescending(x => x.CreatedDate).Take(take).ToList();
+                if (disclst == null || disclst.Count == 0)
+                    throw new Exception("No hay discos en la db");
+                var responseLst = new List<GetDiscResponse>();
+                foreach (var disc in disclst)
+                {
+                    responseLst.Add(new GetDiscResponse
+                    {
+                        DiscId = disc.DiscId,
+                        Name = disc.Name,
+                        Description = disc.Description,
+                        DiscImgUrl = disc.DiscImgUrl,
+                        Price = disc.Price,
+                        Amount = disc.Amount,
+                        Author = new GetDiscResponseAuthor { FullName = disc.Author.FullName, ShortName = disc.Author.ShortName },
+                        Categories = MapCategories(disc)
+                    });
+                }
+                return ResponseBase<List<GetDiscResponse>>.Create(responseLst);
+            }
+        }
+
         public ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request)
         {
             if (request == null)

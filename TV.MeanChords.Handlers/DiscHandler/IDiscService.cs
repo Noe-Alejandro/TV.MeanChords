@@ -13,6 +13,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
         ResponseBase<List<GetDiscResponse>> GetDiscByTitle(string Title);
         ResponseBase<List<GetDiscResponse>> GetDiscByCategory(int CategoryId);
         ResponseBase<List<GetDiscResponse>> GetAllDisc();
+        ResponseBase<List<GetDiscResponse>> GetLastDisc(int? Quantity);
         ResponseBase<PostDiscResponse> PostDisc(PostDiscRequest request);
         ResponseBase<PostDiscResponse> PutDisc(int DiscId, PutDiscRequest request);
     }

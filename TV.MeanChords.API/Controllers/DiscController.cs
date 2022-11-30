@@ -154,6 +154,39 @@ namespace TV.MeanChords.API.Controllers
         }
 
         [AllowAnonymous]
+        [HttpGet]
+        [Route("~/api/Disc/GETLAST")]
+        public IHttpActionResult GetLastDisc(int? Quantity = null)
+        {
+            try
+            {
+                using (var service = GetService())
+                {
+                    var response = service.GetLastDisc(Quantity);
+
+                    var mvReponse = new ResponseBase<List<MVGetDiscResponse>>()
+                    {
+                        Data = MapperHelper.Map<List<MVGetDiscResponse>>(response.Data),
+                        Errors = response.Errors,
+                        Status = response.Status
+                    };
+
+                    if (mvReponse.Status)
+                        return Content(HttpStatusCode.OK, mvReponse);
+
+                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, ResponseBase<List<MVGetDiscResponse>>.Create(new List<string>()
+                {
+                    e.Message
+                }));
+            }
+        }
+
+        [AllowAnonymous]
         [HttpPost]
         [Route("~/api/Disc/POST")]
         public IHttpActionResult PostDisc(MVPostDiscRequest request)
