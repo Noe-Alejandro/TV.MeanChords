@@ -6,7 +6,7 @@ namespace TV.MeanChords.ModelViews.MVLogin
     {
         public string token { get; set; }
         public int UserID { get; set; }
-        //public int UserType { get; set; } 1 = admin y  2 = normal
+        public int UserType { get; set; } 
         public GetUserResponse User { get; set; }
     }
 }

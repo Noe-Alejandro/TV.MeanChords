@@ -6,6 +6,7 @@ namespace TV.MeanChords.Handlers.LoginHandler
     {
         public bool Status { get; set; }
         public int UserId { get; set; }
+        public int UserType { get; set; }
         public GetUserResponse User { get; set; }
     }
 

@@ -218,7 +218,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
         public ResponseBase<PostDiscResponse> PutDisc(int DiscId, PutDiscRequest request)
         {
             var disc = UoWDiscosChowell.DiscRepository.Get(x => x.DiscId.Equals(DiscId)).FirstOrDefault();
-            if (disc != null)
+            if (disc == null)
                 throw new Exception("No existe el id del disco proporcionado en la db");
             if (request.Amount == null)
             {
@@ -277,7 +277,7 @@ namespace TV.MeanChords.Handlers.DiscHandler
 
         private bool ValidateString(string value)
         {
-            return value != null || value != "";
+            return value != null || value.Trim() != "";
         }
     }
 }

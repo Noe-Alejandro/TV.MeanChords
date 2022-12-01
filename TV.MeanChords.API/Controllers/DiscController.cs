@@ -230,17 +230,7 @@ namespace TV.MeanChords.API.Controllers
                 {
                     var response = service.PutDisc(DiscId, request);
 
-                    var mvReponse = new ResponseBase<PostDiscResponse>()
-                    {
-                        Data = MapperHelper.Map<PostDiscResponse>(response.Data),
-                        Errors = response.Errors,
-                        Status = response.Status
-                    };
-
-                    if (mvReponse.Status)
-                        return Content(HttpStatusCode.OK, mvReponse);
-
-                    return Content(HttpStatusCode.BadRequest, mvReponse);
+                    return Ok();
                 }
             }
             catch (Exception e)

@@ -35,11 +35,12 @@ namespace TV.MeanChords.Handlers.LoginHandler
             {
                 Status = true,
                 UserId = user.UserId,
+                UserType = user.Type,
                 User = new GetUserResponse
                 {
                     Name = user.Name,
                     LastName = user.LastName,
-                    Email = user.Email
+                    Email = user.Email,
                 }
             }) : ResponseBase<PostLoginResponse>.Create(new List<string>
             {
