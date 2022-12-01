@@ -23,13 +23,13 @@ namespace TV.MeanChords.Handlers.AddressHandler
         public void DeleteAddress(int addressId)
         {
             var address = UoWDiscosChowell.AddressRepository.Get(x => x.AddressId.Equals(addressId)).FirstOrDefault();
-            UoWDiscosChowell.AddressRepository.Delete(address);
+            address.Status = false;
             UoWDiscosChowell.Save();
         }
 
         public ResponseBase<List<AddressResponseView>> GetAllAddress(int userId)
         {
-            var responseDB = UoWDiscosChowell.AddressRepository.Get(x => x.UserId.Equals(userId)).ToList();
+            var responseDB = UoWDiscosChowell.AddressRepository.Get(x => x.UserId.Equals(userId) && (bool)x.Status).ToList();
             List<AddressResponseView> response = new List<AddressResponseView>();
             foreach (var address in responseDB)
             {
@@ -56,7 +56,8 @@ namespace TV.MeanChords.Handlers.AddressHandler
                 Street = request.Street,
                 HouseNumber = request.HouseNumber,
                 Zip = request.ZIP,
-                UserId = request.UserId
+                UserId = request.UserId,
+                Status = true
             };
             UoWDiscosChowell.AddressRepository.Insert(address);
             UoWDiscosChowell.Save();
