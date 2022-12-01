@@ -188,10 +188,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\AddressController.cs" />
     <Compile Include="Controllers\DiscController.cs" />
     <Compile Include="Controllers\ExampleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\SaleController.cs" />
     <Compile Include="Controllers\ShoppingCarController.cs" />
     <Compile Include="Controllers\TagController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -259,8 +261,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Address\" />
     <Folder Include="Views\Disc\" />
     <Folder Include="Views\Login\" />
+    <Folder Include="Views\Sale\" />
     <Folder Include="Views\ShoppingCar\" />
     <Folder Include="Views\Tag\" />
     <Folder Include="Views\User\" />
