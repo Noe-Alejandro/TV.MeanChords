@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="DiscosChowellModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="discoschowellModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -68,15 +68,11 @@
           <Property Name="Status" Type="int" />
           <Property Name="DeliveryService" Type="int" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="SaleDisc">
           <Key>
-            <PropertyRef Name="SaleId" />
-            <PropertyRef Name="DiscId" />
-            <PropertyRef Name="Amount" />
-            <PropertyRef Name="Total" />
+            <PropertyRef Name="SaleDiscId" />
           </Key>
+          <Property Name="SaleDiscId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SaleId" Type="int" Nullable="false" />
           <Property Name="DiscId" Type="int" Nullable="false" />
           <Property Name="Amount" Type="int" Nullable="false" />
@@ -230,24 +226,17 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DiscosChowellModelStoreContainer">
+        <EntityContainer Name="discoschowellModelStoreContainer">
           <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Disc" EntityType="Self.Disc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DiscTag" EntityType="Self.DiscTag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sale" EntityType="Self.Sale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SaleDisc" EntityType="Self.SaleDisc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ShoppingCar" EntityType="Self.ShoppingCar" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tag" EntityType="Self.Tag" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SaleDisc" EntityType="Self.SaleDisc" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SaleDisc].[SaleId] AS [SaleId], 
-    [SaleDisc].[DiscId] AS [DiscId], 
-    [SaleDisc].[Amount] AS [Amount], 
-    [SaleDisc].[Total] AS [Total]
-    FROM [dbo].[SaleDisc] AS [SaleDisc]</DefiningQuery>
-          </EntitySet>
           <AssociationSet Name="FK_Address_User" Association="Self.FK_Address_User">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
@@ -289,10 +278,11 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             <End Role="ShoppingCar" EntitySet="ShoppingCar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="DiscosChowellModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="discoschowellModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Address">
           <Key>
             <PropertyRef Name="AddressId" />
@@ -333,7 +323,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
           <NavigationProperty Name="Author" Relationship="Self.FK_Disc_Author" FromRole="Disc" ToRole="Author" />
           <NavigationProperty Name="DiscTag" Relationship="Self.FK_DiscTag_Disc" FromRole="Disc" ToRole="DiscTag" />
           <NavigationProperty Name="SaleDisc" Relationship="Self.FK_SaleDisc_Disc" FromRole="Disc" ToRole="SaleDisc" />
-          <NavigationProperty Name="ShoppingCar" Relationship="DiscosChowellModel.FK_ShoppingCar_Disc" FromRole="Disc" ToRole="ShoppingCar" />
+          <NavigationProperty Name="ShoppingCar" Relationship="Self.FK_ShoppingCar_Disc" FromRole="Disc" ToRole="ShoppingCar" />
         </EntityType>
         <EntityType Name="DiscTag">
           <Key>
@@ -362,11 +352,33 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
           <Property Name="Total" Type="Double" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="AddressId" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="DeliveryService" Type="Int32" />
           <NavigationProperty Name="Address" Relationship="Self.FK_Sale_Address" FromRole="Sale" ToRole="Address" />
           <NavigationProperty Name="User" Relationship="Self.FK_Sale_User" FromRole="Sale" ToRole="User" />
           <NavigationProperty Name="SaleDisc" Relationship="Self.FK_SaleDisc_Sale" FromRole="Sale" ToRole="SaleDisc" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="DeliveryService" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SaleDisc">
+          <Key>
+            <PropertyRef Name="SaleDiscId" />
+          </Key>
+          <Property Name="SaleDiscId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleId" Type="Int32" Nullable="false" />
+          <Property Name="DiscId" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Int32" Nullable="false" />
+          <Property Name="Total" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Disc" Relationship="Self.FK_SaleDisc_Disc" FromRole="SaleDisc" ToRole="Disc" />
+          <NavigationProperty Name="Sale" Relationship="Self.FK_SaleDisc_Sale" FromRole="SaleDisc" ToRole="Sale" />
+        </EntityType>
+        <EntityType Name="ShoppingCar">
+          <Key>
+            <PropertyRef Name="ShoppingCarId" />
+          </Key>
+          <Property Name="ShoppingCarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="DiscId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Disc" Relationship="Self.FK_ShoppingCar_Disc" FromRole="ShoppingCar" ToRole="Disc" />
+          <NavigationProperty Name="User" Relationship="Self.FK_ShoppingCar_User" FromRole="ShoppingCar" ToRole="User" />
         </EntityType>
         <EntityType Name="Tag">
           <Key>
@@ -390,21 +402,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
           <Property Name="ModificationDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Address" Relationship="Self.FK_Address_User" FromRole="User" ToRole="Address" />
           <NavigationProperty Name="Sale" Relationship="Self.FK_Sale_User" FromRole="User" ToRole="Sale" />
-          <NavigationProperty Name="ShoppingCar" Relationship="DiscosChowellModel.FK_ShoppingCar_User" FromRole="User" ToRole="ShoppingCar" />
-        </EntityType>
-        <EntityType Name="SaleDisc">
-          <Key>
-            <PropertyRef Name="SaleId" />
-            <PropertyRef Name="DiscId" />
-            <PropertyRef Name="Amount" />
-            <PropertyRef Name="Total" />
-          </Key>
-          <Property Name="SaleId" Type="Int32" Nullable="false" />
-          <Property Name="DiscId" Type="Int32" Nullable="false" />
-          <Property Name="Amount" Type="Int32" Nullable="false" />
-          <Property Name="Total" Type="Double" Nullable="false" />
-          <NavigationProperty Name="Disc" Relationship="Self.FK_SaleDisc_Disc" FromRole="SaleDisc" ToRole="Disc" />
-          <NavigationProperty Name="Sale" Relationship="Self.FK_SaleDisc_Sale" FromRole="SaleDisc" ToRole="Sale" />
+          <NavigationProperty Name="ShoppingCar" Relationship="Self.FK_ShoppingCar_User" FromRole="User" ToRole="ShoppingCar" />
         </EntityType>
         <Association Name="FK_Address_User">
           <End Role="User" Type="Self.User" Multiplicity="1" />
@@ -466,6 +464,18 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ShoppingCar_Disc">
+          <End Role="Disc" Type="Self.Disc" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disc">
+              <PropertyRef Name="DiscId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="DiscId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_DiscTag_Tag">
           <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
           <End Role="DiscTag" Type="Self.DiscTag" Multiplicity="*" />
@@ -502,6 +512,18 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_ShoppingCar_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="ShoppingCar" Type="Self.ShoppingCar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="ShoppingCar">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="DiscosChowellEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Address" EntityType="Self.Address" />
           <EntitySet Name="Author" EntityType="Self.Author" />
@@ -509,9 +531,10 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
           <EntitySet Name="DiscTag" EntityType="Self.DiscTag" />
           <EntitySet Name="Report" EntityType="Self.Report" />
           <EntitySet Name="Sale" EntityType="Self.Sale" />
+          <EntitySet Name="SaleDisc" EntityType="Self.SaleDisc" />
+          <EntitySet Name="ShoppingCar" EntityType="Self.ShoppingCar" />
           <EntitySet Name="Tag" EntityType="Self.Tag" />
           <EntitySet Name="User" EntityType="Self.User" />
-          <EntitySet Name="SaleDisc" EntityType="Self.SaleDisc" />
           <AssociationSet Name="FK_Address_User" Association="Self.FK_Address_User">
             <End Role="User" EntitySet="User" />
             <End Role="Address" EntitySet="Address" />
@@ -532,6 +555,10 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             <End Role="Disc" EntitySet="Disc" />
             <End Role="SaleDisc" EntitySet="SaleDisc" />
           </AssociationSet>
+          <AssociationSet Name="FK_ShoppingCar_Disc" Association="Self.FK_ShoppingCar_Disc">
+            <End Role="Disc" EntitySet="Disc" />
+            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
+          </AssociationSet>
           <AssociationSet Name="FK_DiscTag_Tag" Association="Self.FK_DiscTag_Tag">
             <End Role="Tag" EntitySet="Tag" />
             <End Role="DiscTag" EntitySet="DiscTag" />
@@ -544,58 +571,19 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             <End Role="Sale" EntitySet="Sale" />
             <End Role="SaleDisc" EntitySet="SaleDisc" />
           </AssociationSet>
-          <EntitySet Name="ShoppingCar" EntityType="DiscosChowellModel.ShoppingCar" />
-          <AssociationSet Name="FK_ShoppingCar_Disc" Association="DiscosChowellModel.FK_ShoppingCar_Disc">
-            <End Role="Disc" EntitySet="Disc" />
-            <End Role="ShoppingCar" EntitySet="ShoppingCar" />
-          </AssociationSet>
-          <AssociationSet Name="FK_ShoppingCar_User" Association="DiscosChowellModel.FK_ShoppingCar_User">
+          <AssociationSet Name="FK_ShoppingCar_User" Association="Self.FK_ShoppingCar_User">
             <End Role="User" EntitySet="User" />
             <End Role="ShoppingCar" EntitySet="ShoppingCar" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="ShoppingCar">
-          <Key>
-            <PropertyRef Name="ShoppingCarId" />
-          </Key>
-          <Property Name="ShoppingCarId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" Nullable="false" />
-          <Property Name="DiscId" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Disc" Relationship="DiscosChowellModel.FK_ShoppingCar_Disc" FromRole="ShoppingCar" ToRole="Disc" />
-          <NavigationProperty Name="User" Relationship="DiscosChowellModel.FK_ShoppingCar_User" FromRole="ShoppingCar" ToRole="User" />
-        </EntityType>
-        <Association Name="FK_ShoppingCar_Disc">
-          <End Type="DiscosChowellModel.Disc" Role="Disc" Multiplicity="1" />
-          <End Type="DiscosChowellModel.ShoppingCar" Role="ShoppingCar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Disc">
-              <PropertyRef Name="DiscId" />
-            </Principal>
-            <Dependent Role="ShoppingCar">
-              <PropertyRef Name="DiscId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_ShoppingCar_User">
-          <End Type="DiscosChowellModel.User" Role="User" Multiplicity="1" />
-          <End Type="DiscosChowellModel.ShoppingCar" Role="ShoppingCar" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="UserId" />
-            </Principal>
-            <Dependent Role="ShoppingCar">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DiscosChowellModelStoreContainer" CdmEntityContainer="DiscosChowellEntities">
+        <EntityContainerMapping StorageEntityContainer="discoschowellModelStoreContainer" CdmEntityContainer="DiscosChowellEntities">
           <EntitySetMapping Name="Address">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Address">
+            <EntityTypeMapping TypeName="discoschowellModel.Address">
               <MappingFragment StoreEntitySet="Address">
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
                 <ScalarProperty Name="Country" ColumnName="Country" />
@@ -608,7 +596,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Author">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Author">
+            <EntityTypeMapping TypeName="discoschowellModel.Author">
               <MappingFragment StoreEntitySet="Author">
                 <ScalarProperty Name="AuthorId" ColumnName="AuthorId" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
@@ -617,7 +605,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Disc">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Disc">
+            <EntityTypeMapping TypeName="discoschowellModel.Disc">
               <MappingFragment StoreEntitySet="Disc">
                 <ScalarProperty Name="DiscId" ColumnName="DiscId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -633,7 +621,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DiscTag">
-            <EntityTypeMapping TypeName="DiscosChowellModel.DiscTag">
+            <EntityTypeMapping TypeName="discoschowellModel.DiscTag">
               <MappingFragment StoreEntitySet="DiscTag">
                 <ScalarProperty Name="DiscTagId" ColumnName="DiscTagId" />
                 <ScalarProperty Name="DiscId" ColumnName="DiscId" />
@@ -642,7 +630,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Report">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Report">
+            <EntityTypeMapping TypeName="discoschowellModel.Report">
               <MappingFragment StoreEntitySet="Report">
                 <ScalarProperty Name="ReportId" ColumnName="ReportId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -651,20 +639,40 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sale">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Sale">
+            <EntityTypeMapping TypeName="discoschowellModel.Sale">
               <MappingFragment StoreEntitySet="Sale">
-                <ScalarProperty Name="DeliveryService" ColumnName="DeliveryService" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="SaleId" ColumnName="SaleId" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="AddressId" ColumnName="AddressId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DeliveryService" ColumnName="DeliveryService" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SaleDisc">
+            <EntityTypeMapping TypeName="discoschowellModel.SaleDisc">
+              <MappingFragment StoreEntitySet="SaleDisc">
+                <ScalarProperty Name="SaleDiscId" ColumnName="SaleDiscId" />
+                <ScalarProperty Name="SaleId" ColumnName="SaleId" />
+                <ScalarProperty Name="DiscId" ColumnName="DiscId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ShoppingCar">
+            <EntityTypeMapping TypeName="discoschowellModel.ShoppingCar">
+              <MappingFragment StoreEntitySet="ShoppingCar">
+                <ScalarProperty Name="ShoppingCarId" ColumnName="ShoppingCarId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="DiscId" ColumnName="DiscId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tag">
-            <EntityTypeMapping TypeName="DiscosChowellModel.Tag">
+            <EntityTypeMapping TypeName="discoschowellModel.Tag">
               <MappingFragment StoreEntitySet="Tag">
                 <ScalarProperty Name="TagId" ColumnName="TagId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -672,7 +680,7 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="DiscosChowellModel.User">
+            <EntityTypeMapping TypeName="discoschowellModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -682,25 +690,6 @@ advertencia 6002: La tabla o vista 'discos_chowell.dbo.SaleDisc' no tiene defini
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="ModificationDate" ColumnName="ModificationDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SaleDisc">
-            <EntityTypeMapping TypeName="DiscosChowellModel.SaleDisc">
-              <MappingFragment StoreEntitySet="SaleDisc">
-                <ScalarProperty Name="SaleId" ColumnName="SaleId" />
-                <ScalarProperty Name="DiscId" ColumnName="DiscId" />
-                <ScalarProperty Name="Amount" ColumnName="Amount" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ShoppingCar">
-            <EntityTypeMapping TypeName="DiscosChowellModel.ShoppingCar">
-              <MappingFragment StoreEntitySet="ShoppingCar">
-                <ScalarProperty Name="DiscId" ColumnName="DiscId" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ShoppingCarId" ColumnName="ShoppingCarId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

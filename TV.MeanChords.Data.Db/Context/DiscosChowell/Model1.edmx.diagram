@@ -4,27 +4,27 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0827b63a733d4dc0aa6012110c3c4b8f" Name="Diagram1">
-        <EntityTypeShape EntityType="DiscosChowellModel.Address" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.Author" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.Disc" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.DiscTag" Width="1.5" PointX="7.5" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.Report" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.Sale" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.Tag" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.User" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="DiscosChowellModel.SaleDisc" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
-        <AssociationConnector Association="DiscosChowellModel.FK_Address_User" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_Sale_Address" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_Disc_Author" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_DiscTag_Disc" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_SaleDisc_Disc" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_DiscTag_Tag" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_Sale_User" ManuallyRouted="false" />
-        <AssociationConnector Association="DiscosChowellModel.FK_SaleDisc_Sale" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="DiscosChowellModel.ShoppingCar" Width="1.5" PointX="10.5" PointY="3.75" />
-        <AssociationConnector Association="DiscosChowellModel.FK_ShoppingCar_Disc" />
-        <AssociationConnector Association="DiscosChowellModel.FK_ShoppingCar_User" />
+      <Diagram DiagramId="a406ff5c352545aca16af064b4218c7a" Name="Diagram1">
+        <EntityTypeShape EntityType="discoschowellModel.Address" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.Author" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.Disc" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.DiscTag" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.Report" Width="1.5" PointX="7.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.Sale" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.SaleDisc" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.ShoppingCar" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.Tag" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="discoschowellModel.User" Width="1.5" PointX="1.5" PointY="12.25" IsExpanded="true" />
+        <AssociationConnector Association="discoschowellModel.FK_Address_User" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_Sale_Address" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_Disc_Author" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_DiscTag_Disc" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_SaleDisc_Disc" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_ShoppingCar_Disc" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_DiscTag_Tag" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_Sale_User" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_SaleDisc_Sale" ManuallyRouted="false" />
+        <AssociationConnector Association="discoschowellModel.FK_ShoppingCar_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

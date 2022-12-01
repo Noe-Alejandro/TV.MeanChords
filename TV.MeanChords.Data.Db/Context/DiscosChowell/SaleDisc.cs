@@ -14,6 +14,7 @@ namespace TV.MeanChords.Data.Db.Context.DiscosChowell
     
     public partial class SaleDisc
     {
+        public int SaleDiscId { get; set; }
         public int SaleId { get; set; }
         public int DiscId { get; set; }
         public int Amount { get; set; }

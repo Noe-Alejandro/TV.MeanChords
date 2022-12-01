@@ -44,7 +44,6 @@ namespace TV.MeanChords.Handlers.SaleHandler
             };
             UoWDiscosChowell.SaleRepository.Insert(sale);
             UoWDiscosChowell.Save();
-
             var discInShoppingCar = UoWDiscosChowell.ShoppingCarRepository.Get(x => x.UserId.Equals(UserId)).ToList();
             var saleDetails = new List<SaleDisc>();
             var discLstToReduce = new List<Disc>();
@@ -59,6 +58,9 @@ namespace TV.MeanChords.Handlers.SaleHandler
                 });
                 discLstToReduce.Add(disc.Disc);
             }
+            UoWDiscosChowell.SaleDiscRepository.InsertByRange(saleDetails);
+            UoWDiscosChowell.Save();
+
             var discToNotify = new List<Disc>();
             foreach (var disc in discLstToReduce)
             {
@@ -69,10 +71,12 @@ namespace TV.MeanChords.Handlers.SaleHandler
                 }
             }
             //Send to notity => discToNotify
-            UoWDiscosChowell.SaleDiscRepository.InsertByRange(saleDetails);
             UoWDiscosChowell.ShoppingCarRepository.DeleteByRange(discInShoppingCar);
             UoWDiscosChowell.Save();
-            return null;
+            return ResponseBase<SaleResponse>.Create(new SaleResponse
+            {
+                SaleId = sale.SaleId
+            });
         }
 
         private class DeliveryServiceModel
